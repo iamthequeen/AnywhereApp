@@ -1,0 +1,201 @@
+body {
+  background: url("https://images.unsplash.com/photo-1465964816819-88949ae78179?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80") no-repeat center center fixed ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  font-family: arial, serif;
+  color: white;
+  margin: 0;
+}
+
+
+.container {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.overlay {
+  background: linear-gradient(to right, rgb(39, 42, 55), rgba(39, 42, 55, 1), rgba(39, 42, 55, 0.8));
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; 
+  display: inline-block;
+  padding-bottom: 6em;
+  z-index: -1;
+}
+
+/* ///// NAV ///// */
+
+.circle {
+  background-color: blue;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.navbar {
+  padding-bottom: 4em;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+}
+
+a {
+   text-decoration: none;
+}
+
+.nav-list a {
+  font-weight: bold;
+  color: gray;
+  margin-left: 3em;
+}
+
+.nav-list li {
+  margin-top: 0;
+} 
+
+.company a {
+  display: flex;
+  align-items: center;
+}
+
+.navlink:hover {
+  color: white;
+}
+
+.navlink:focus {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+.company-name {
+  color: white;
+  padding-left: 1em;
+}
+
+/* ///// Home & Error Page ///// */
+.home, .error-page {
+  margin-left: 4em;
+  margin-top: 8em;
+}
+
+.home h1 {
+  font-size: 3em;
+}
+
+/* ///// Signup & Login ///// */
+
+.start-free {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: gray;
+}
+
+.gray-text {
+  color: gray;
+}
+
+.signup,
+.signup-form,
+.login,
+.login-form {
+  margin-left: 4em;
+}
+
+.transfer-link {
+  color: blue
+}
+
+
+/* ///// Signup Form & Login Form ///// */
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form-input {
+  background-color: #323644;
+  border: none;
+  border-radius: 1em;
+  height: 3em;
+  outline: none;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 1em;
+  color: white;
+  font-weight: bold;
+}
+
+.form-label {
+  font-size: 0.75em;
+  position: relative;
+  left: 1.7em;
+  top: 2.1em;
+  color: #ACAFB4;
+}
+
+.names {
+  display: flex;
+  gap: 2em;
+}
+
+#fname,
+#lname {
+  width: 10.8em;
+}
+
+#signup-email,
+#signup-password,
+#login-email,
+#login-password {
+  width: 360px;
+}
+
+#signup-password,
+#login-password {
+  letter-spacing: 0.45em;
+}
+
+#signup-password::placeholder,
+#login-password::placeholder{
+  letter-spacing: normal;
+}
+
+#signup-btn,
+#login-btn {
+  margin-left: 9em;
+  margin-top: 2em;
+  background-color: #1D90F5;
+  color: white;
+  border: none;
+  padding: 1em 2.5em;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 2em;
+}
+
+#login-btn {
+  margin-left: 11em;
+}
+
+/* Welcome & Welcome Back */
+
+.welcome,
+.welcome-back {
+  margin-left: 11em;
+  margin-top: 5em;
+}
