@@ -1,8 +1,12 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
-
+import SignupValidation from "./SignupValidation";
 function SignupForm({user, setUser, existingUser, setExistingUser}) {
     const navigate = useNavigate();
   
+    const [errors, setErrors] = useState({})
+    const [dataIsCorrect, setDataIsCorrect] = useState(false)
+
     function handleSignupChange(e) {
      setUser(prevUser =>  ({
         ...prevUser,
@@ -15,25 +19,29 @@ function SignupForm({user, setUser, existingUser, setExistingUser}) {
       }))
    }
    
-   function submitHandler() {
-     
-     console.log(existingUser)
-     
-       
-     navigate("/welcome")
- 
+   function submitHandler(e) {
+     e.preventDefault()
+     setErrors(SignupValidation(user))
+     setDataIsCorrect(true)
+
    }
+
+
    
    function handleKeyPress(e) {
      if (e.key === 'Enter') {
- 
-     console.log(existingUser)
-       
-     navigate("/welcome")
- 
+      e.preventDefault()
+      setErrors(SignupValidation(user))
+      setDataIsCorrect(true)
    }
    }
- 
+
+   useEffect(() => {
+    if(Object.keys(errors).length === 0 && dataIsCorrect) {
+      navigate("/welcome")
+      console.log(existingUser)
+    }
+   })
    
    return (
    <form className="signup-form">
@@ -52,6 +60,7 @@ function SignupForm({user, setUser, existingUser, setExistingUser}) {
          onChange={handleSignupChange}
          value={user.firstName}
          />
+         {errors.firstName && <p className="error">{errors.firstName}</p>}
        </div>
        
        <div className="form-inputs">
@@ -67,6 +76,7 @@ function SignupForm({user, setUser, existingUser, setExistingUser}) {
          onChange={handleSignupChange}
          value={user.lastName}
          />
+         {errors.lastName && <p className="error">{errors.lastName}</p>}
        </div>
          </div>
        
@@ -83,6 +93,7 @@ function SignupForm({user, setUser, existingUser, setExistingUser}) {
          onChange={handleSignupChange}
          value={user.email}
          />
+         {errors.email && <p className="error">{errors.email}</p>}
        </div>
        
        <div className="form-inputs">
@@ -99,6 +110,7 @@ function SignupForm({user, setUser, existingUser, setExistingUser}) {
          value={user.password}
          onKeyPress={handleKeyPress}
          />
+         {errors.password && <p className="error">{errors.password}</p>}
        </div>
    
        <div className="form-inputs">
